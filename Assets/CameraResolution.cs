@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
  
@@ -19,7 +20,7 @@ public class CameraResolution : MonoBehaviour
  
         if (Screen.width == ScreenSizeX && Screen.height == ScreenSizeY) return;
  
-        float targetaspect = 9.0f / 9.0f;
+        float targetaspect = 1.0f / 2.0f;
         float windowaspect = (float)Screen.width / (float)Screen.height;
         float scaleheight = windowaspect / targetaspect;
         Camera camera = GetComponent<Camera>();
@@ -70,15 +71,20 @@ public class CameraResolution : MonoBehaviour
         Camera.main.rect = wp;
  
     }
- 
+
+    private void Awake()
+    {
+        RescaleCamera();
+    }
+
     // Use this for initialization
     void Start () {
-        RescaleCamera();
+        //RescaleCamera();
     }
    
     // Update is called once per frame
     void Update () {
-        RescaleCamera();
+        //RescaleCamera();
     }
     #endregion
 }
