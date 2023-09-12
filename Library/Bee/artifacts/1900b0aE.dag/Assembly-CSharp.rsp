@@ -383,6 +383,7 @@
 "Assets/CameraResolution.cs"
 "Assets/MapController.cs"
 "Assets/ShapeControl.cs"
+"Assets/ShapeSpawner.cs"
 -langversion:9.0
 
 /deterministic
