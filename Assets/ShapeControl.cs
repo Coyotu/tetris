@@ -86,9 +86,13 @@ public class ShapeControl : MonoBehaviour
 
     void Update()
     {
+        if(_box1!=null)
         _box1.transform.position = new Vector3(x1, y1, 0);
+        if(_box2!=null)
         _box2.transform.position = new Vector3(x2, y2, 0);
+        if(_box3!=null)
         _box3.transform.position = new Vector3(x3, y3, 0);
+        if(_box4!=null)
         _box4.transform.position = new Vector3(x4, y4, 0);
         if (Input.GetKeyDown(KeyCode.UpArrow) && _canMove)
         {
@@ -139,7 +143,10 @@ public class ShapeControl : MonoBehaviour
             y3 -= 1;
             y4 -= 1;
             if (!_map.MapUpdate((int)x1, (int)x2, (int)x3, (int)x4, (int)(-y1), (int)(-y2), (int)(-y3), (int)(-y4)))
+            {
+                DestroyFullRow();
                 _canMove = false;
+            }
         }
         if (_speedMove && _canMove)
         {
@@ -148,12 +155,52 @@ public class ShapeControl : MonoBehaviour
             y3 -= 1;
             y4 -= 1;
             if (!_map.MapUpdate((int)x1, (int)x2, (int)x3, (int)x4, (int)(-y1), (int)(-y2), (int)(-y3), (int)(-y4)))
+            {
+                DestroyFullRow();
                 _canMove = false;
+            }
+
             _speedMove = false;
         }
-            
+        DestroyFullRow();
         currentTime += Time.deltaTime;
     }
+
+    private void DestroyFullRow()
+    {
+        if ((int)(-y1) == _map.rowToDestroy)
+        {
+            _map.MakeRoomOnMap((int)(-y1));
+            Destroy(_box1);
+            x1 = 0;
+            y1 = 0;
+        }
+
+        if ((int)(-y2) == _map.rowToDestroy)
+        {
+            _map.MakeRoomOnMap((int)(-y2));
+            Destroy(_box2);
+            x2 = 0;
+            y2 = 0;
+        }
+
+        if ((int)(-y3) == _map.rowToDestroy)
+        {
+            _map.MakeRoomOnMap((int)(-y3));
+            Destroy(_box3);
+            x3 = 0;
+            y3 = 0;
+        }
+
+        if ((int)(-y4) == _map.rowToDestroy)
+        {
+            _map.MakeRoomOnMap((int)(-y4));
+            Destroy(_box4);
+            x3 = 0;
+            y3 = 0;
+        }
+    }
+    
 
     private void RotateShape(int localShapeRotation)
     {

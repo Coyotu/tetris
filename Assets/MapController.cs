@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -11,6 +12,7 @@ public class MapController : MonoBehaviour
     public int[,] matrix = new int[20, 10];
     private float startTime = 0.0f;
     private float currentTime = 0.0f;
+    public int rowToDestroy = -1;
 
     private void Start()
     {
@@ -82,6 +84,7 @@ public class MapController : MonoBehaviour
             {
                 _spawner.SpawnObject();
                 MakeMatrixElementsNegative();
+                FindFullRow();
                 return false;
             }
             else
@@ -127,5 +130,50 @@ public class MapController : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void FindFullRow()
+    {
+        int element;
+        for (int i = 0; i < 20; i++)
+        {
+            element = 0;
+            for (int j = 0; j < 10; j++)
+            {
+                if (matrix[i, j] < 0)
+                    element++;
+            }
+
+            if (element == 10)
+                rowToDestroy = i;
+        }
+        Debug.Log(rowToDestroy);
+    }
+
+    public void MakeRoomOnMap(int row)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            matrix[row, i] = 0;
+        }
+    }
+    
+    public bool EmptyRowExist()
+    {
+        int element;
+        for (int i = 5; i < 20; i++)
+        {
+            element = 0;
+            for (int j = 0; j < 10; j++)
+            {
+                if (matrix[i, j] == 0 && matrix[i-1,j]!=0)
+                    element++;
+            }
+
+            if (element == 10)
+                return true;
+        }
+
+        return false;
     }
 }

@@ -381,6 +381,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/CameraResolution.cs"
+"Assets/GetBoxLowerOnMap.cs"
 "Assets/MapController.cs"
 "Assets/ShapeControl.cs"
 "Assets/ShapeSpawner.cs"

@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawner: {fileID: 1924691455}
+  rowToDestroy: -1
 --- !u!4 &171096409
 Transform:
   m_ObjectHideFlags: 0
