@@ -18,7 +18,7 @@ public class ShapeSpawner : MonoBehaviour
         SpawnObject();
     }
 
-    private void SpawnObject()
+    public void SpawnObject()
     {
         System.Random random = new System.Random();
 

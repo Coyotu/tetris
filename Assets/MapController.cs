@@ -7,6 +7,7 @@ using UnityEngine.PlayerLoop;
 
 public class MapController : MonoBehaviour
 {
+    [SerializeField] private ShapeSpawner _spawner;
     public int[,] matrix = new int[20, 10];
     public float delay = 1;
     private float startTime = 0.0f;
@@ -65,7 +66,7 @@ public class MapController : MonoBehaviour
 
     }
 
-    public void MapUpdate(int x1,int x2,int x3, int x4,int y1,int y2,int y3, int y4)
+    public bool MapUpdate(int x1,int x2,int x3, int x4,int y1,int y2,int y3, int y4)
     {
         for (int i = 0; i < 20; i++)
         {
@@ -79,38 +80,36 @@ public class MapController : MonoBehaviour
         matrix[y2, x2] = 2;
         matrix[y3, x3] = 3;
         matrix[y4, x4] = 4;
+        if (y1 < 19 && y2 < 19 && y3 < 19 && y4 < 19)
+        {
+            if (matrix[y1 + 1, x1] < 0 || matrix[y2 + 1, x2] < 0 || matrix[y3 + 1, x3] < 0 || matrix[y4 + 1, x4] < 0)
+            {
+                _spawner.SpawnObject();
+                MakeMatrixElementsNegative();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else
+        {
+            MakeMatrixElementsNegative();
+            _spawner.SpawnObject();
+            return false;
+        }
     }
 
-    public int returnPosX(int var)
+    private void MakeMatrixElementsNegative()
     {
         for (int i = 0; i < 20; i++)
         {
             for (int j = 0; j < 10; j++)
             {
-                if (matrix[i, j] == var)
-                {
-                    Debug.Log(var+ " " +j);
-                    return j;
-                }
+                if (matrix[i, j] > 0)
+                    matrix[i, j] *=-1;
             }
         }
-
-        return 0;
-    }
-    public int returnPosY(int var)
-    {
-        for (int i = 0; i < 20; i++)
-        {
-            for (int j = 0; j < 10; j++)
-            {
-                if (matrix[i, j] == var)
-                {
-                    Debug.Log(var+ " " +i);
-                    return i;
-                }
-            }
-        }
-
-        return 0;
     }
 }
