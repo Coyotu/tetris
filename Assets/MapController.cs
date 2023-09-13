@@ -150,30 +150,44 @@ public class MapController : MonoBehaviour
         Debug.Log(rowToDestroy);
     }
 
-    public void MakeRoomOnMap(int row)
+    public void markAsDestroyed(int row)
     {
+        int elements=0;
         for (int i = 0; i < 10; i++)
         {
-            matrix[row, i] = 0;
+            if (matrix[row, i] == 0)
+                elements++;
         }
+
+        if (elements == 10) 
+            rowToDestroy = -1;
     }
     
     public bool EmptyRowExist()
     {
+        bool isEmptyBetweenTheLines = false;
         int element;
         for (int i = 5; i < 20; i++)
         {
             element = 0;
             for (int j = 0; j < 10; j++)
             {
-                if (matrix[i, j] == 0 && matrix[i-1,j]!=0)
+                if (matrix[i - 1, j] != 0)
+                    isEmptyBetweenTheLines = true;
+                if (matrix[i, j] == 0)
                     element++;
             }
 
-            if (element == 10)
+            if (element == 10 && isEmptyBetweenTheLines)
                 return true;
         }
 
         return false;
+    }
+
+    public void changeValue(int row, int column)
+    {
+        matrix[row, column] = 0;
+        markAsDestroyed(row);
     }
 }
