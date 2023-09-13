@@ -8,12 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tetris/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShapeControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShapeControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShapeSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShapeSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/08/080b9697a5ae3c4a0d7f2cb048ce0af0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/33/33804817b1fb20d390a4a7da3e12a5f6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/8c/8c123b895e0638f81e826add1e87df83" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/d6/d6b41fd319c1a7da2db48f2a0f69ff96" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state.map" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll" afterDir="false" />
@@ -32,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/Library/Search/transactions.db" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Search/transactions.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/4d/4d2a36d9faf65734f0bbefb3ee623532.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/4d/4d2a36d9faf65734f0bbefb3ee623532.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/8c/8cd7c613bf844de3b80696e27a479d5e.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/8c/8cd7c613bf844de3b80696e27a479d5e.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/com.unity.ide.rider/PersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/com.unity.ide.rider/PersistedState.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +110,8 @@
       <updated>1694518471964</updated>
       <workItem from="1694518474942" duration="11000" />
       <workItem from="1694520579028" duration="1728000" />
-      <workItem from="1694591103825" duration="6093000" />
+      <workItem from="1694591103825" duration="6862000" />
+      <workItem from="1694604880509" duration="3444000" />
     </task>
     <servers />
   </component>

@@ -9,7 +9,6 @@ public class MapController : MonoBehaviour
 {
     [SerializeField] private ShapeSpawner _spawner;
     public int[,] matrix = new int[20, 10];
-    public float delay = 1;
     private float startTime = 0.0f;
     private float currentTime = 0.0f;
 
@@ -19,11 +18,11 @@ public class MapController : MonoBehaviour
         {
             for (int j = 0; j < 10; j++)
             {
-                matrix[i,j] = 0;
+                matrix[i, j] = 0;
             }
         }
     }
-    
+
 
     public void Instantiate(int shapeIndex)
     {
@@ -61,12 +60,8 @@ public class MapController : MonoBehaviour
                 break;
         }
     }
-    void Update()
-    {
 
-    }
-
-    public bool MapUpdate(int x1,int x2,int x3, int x4,int y1,int y2,int y3, int y4)
+    public bool MapUpdate(int x1, int x2, int x3, int x4, int y1, int y2, int y3, int y4)
     {
         for (int i = 0; i < 20; i++)
         {
@@ -76,6 +71,7 @@ public class MapController : MonoBehaviour
                     matrix[i, j] = 0;
             }
         }
+
         matrix[y1, x1] = 1;
         matrix[y2, x2] = 2;
         matrix[y3, x3] = 3;
@@ -108,8 +104,28 @@ public class MapController : MonoBehaviour
             for (int j = 0; j < 10; j++)
             {
                 if (matrix[i, j] > 0)
-                    matrix[i, j] *=-1;
+                    matrix[i, j] *= -1;
             }
         }
+    }
+
+    public bool isLeftAvailable(int x1, int x2, int x3, int x4, int y1, int y2, int y3, int y4)
+    {
+        if (matrix[y1, x1-1] < 0 || matrix[y2, x2-1] < 0 || matrix[y3, x3-1] < 0 || matrix[y4, x4-1] < 0)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public bool isRightAvailable(int x1, int x2, int x3, int x4, int y1, int y2, int y3, int y4)
+    {
+        if (matrix[y1, x1+1] < 0 || matrix[y2, x2+1] < 0 || matrix[y3, x3+1] < 0 || matrix[y4, x4+1] < 0)
+        {
+            return false;
+        }
+
+        return true;
     }
 }
