@@ -94,16 +94,6 @@ public class ShapeControl : MonoBehaviour
 
     void Update()
     {
-        if (_shouldGoLower)
-        {
-            //y1--;
-            //y2--;
-            //y3--;
-            //y4--;
-            Debug.Log("nununu");
-
-            _shouldGoLower = false;
-        }
         if(_box1!=null)
         _box1.transform.position = new Vector3(x1, y1, 0);
         if(_box2!=null)
@@ -190,7 +180,6 @@ public class ShapeControl : MonoBehaviour
         
         if ((int)(-y1) == _map.rowToDestroy)
         {
-            
             _map.changeValue((int)(-y1),(int)x1);
             Destroy(_box1);
             x1 = 100;

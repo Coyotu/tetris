@@ -20,23 +20,18 @@ public class GetBoxLowerOnMap : MonoBehaviour
 
     public void getLower()
     {
-        Debug.Log(gameObject.name);
         switch (gameObject.name)
         {
             case "Square":
-                Debug.Log("teoretic s-a dat mai jos");
                 _shape.y1--;
                 break;
             case "Square (1)":
-                Debug.Log("teoretic s-a dat mai jos");
                 _shape.y2--;
                 break;
             case "Square (2)":
-                Debug.Log("teoretic s-a dat mai jos");
                 _shape.y3--;
                 break;
             case "Square (3)":
-                Debug.Log("teoretic s-a dat mai jos");
                 _shape.y4--;
                 break;
         }

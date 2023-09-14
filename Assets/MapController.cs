@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,15 +10,24 @@ using UnityEngine.PlayerLoop;
 public class MapController : MonoBehaviour
 {
     [SerializeField] private ShapeSpawner _spawner;
+    [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private TextMeshProUGUI _score;
+    [SerializeField] private GameObject _gameObjectText;
+    
+    private List<GameObject> squareObjects = new List<GameObject>();
+
     public int[,] matrix = new int[20, 10];
+    private int score=0;
     private float startTime = 0.0f;
     private float currentTime = 0.0f;
     public int rowToDestroy = -1;
-    public int rowThatHasBeenDestroyed = -1;
-    private List<GameObject> squareObjects = new List<GameObject>();
 
     private void Start()
     {
+        _score.rectTransform.position = new Vector3(_score.rectTransform.position.x, Screen.height-5, _score.rectTransform.position.z);
+        _scoreText.rectTransform.position = new Vector3(_scoreText.rectTransform.position.x, Screen.height-5, _scoreText.rectTransform.position.z);
+
+
         for (int i = 0; i < 20; i++)
         {
             for (int j = 0; j < 10; j++)
@@ -67,6 +77,7 @@ public class MapController : MonoBehaviour
 
     public bool MapUpdate(int x1, int x2, int x3, int x4, int y1, int y2, int y3, int y4)
     {
+        FindFullRow();
         for (int i = 0; i < 20; i++)
         {
             for (int j = 0; j < 10; j++)
@@ -94,7 +105,6 @@ public class MapController : MonoBehaviour
             {
                 _spawner.SpawnObject();
                 MakeMatrixElementsNegative();
-                FindFullRow();
                 return false;
             }
             else
@@ -157,19 +167,18 @@ public class MapController : MonoBehaviour
             if (element == 10)
                 rowToDestroy = i;
         }
-        Debug.Log(rowToDestroy);
     }
 
     public void markAsDestroyed(int row)
     {
-        rowThatHasBeenDestroyed = rowToDestroy;
         int elements=0;
         for (int i = 0; i < 10; i++)
         {
             if (matrix[row, i] == 0)
                 elements++;
         }
-        
+        score++;
+        _score.text = score.ToString();
     }
     
     public bool EmptyRowExist()
@@ -198,27 +207,22 @@ public class MapController : MonoBehaviour
     {
         if (EmptyRowExist() && rowToDestroy != -1)
         {
-            Debug.Log("s-a incercat o manevra");
             GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
             foreach (var obj in allObjects)
             {
-                // Verificăm dacă numele obiectului conține "Square"
                 if (obj.name.Contains("Square"))
                 {
-                    // Verificăm dacă obiectul nu există deja în vector
                     if (!squareObjects.Contains(obj))
                     {
                         squareObjects.Add(obj);
                     }
                 }
             }
-            Debug.Log(squareObjects.Count);
 
             for (int i=0;i<squareObjects.Count;i++)
             {
                 if (rowToDestroy > (int)(-squareObjects[i].transform.position.y))
                 {
-                    Debug.Log("s-a incercat ceva");
                     GetBoxLowerOnMap _objScript = squareObjects[i].GetComponent<GetBoxLowerOnMap>();
                     _objScript.getLower();
                 }
@@ -227,6 +231,7 @@ public class MapController : MonoBehaviour
             UpdateMapAfterDestroy(rowToDestroy);
             rowToDestroy = -1;
         }
+        FindReasonToEndGame();
     }
 
     private void UpdateMapAfterDestroy(int row)
@@ -244,5 +249,24 @@ public class MapController : MonoBehaviour
     {
         matrix[row, column] = 0;
         markAsDestroyed(row);
+    }
+
+    private void FindReasonToEndGame()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if(matrix[i,j]<0)
+                    StopGame();
+            }
+        }
+    }
+
+    private void StopGame()
+    {
+        _gameObjectText.SetActive(true);
+        _spawner.canSpawn = false;
+        Time.timeScale = 0.0f;
     }
 }
