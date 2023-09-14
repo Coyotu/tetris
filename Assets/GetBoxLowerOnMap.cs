@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.VersionControl;
 using UnityEngine;
-using Task = System.Threading.Tasks.Task;
 
 public class GetBoxLowerOnMap : MonoBehaviour
 {
