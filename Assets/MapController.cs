@@ -13,6 +13,8 @@ public class MapController : MonoBehaviour
     private float startTime = 0.0f;
     private float currentTime = 0.0f;
     public int rowToDestroy = -1;
+    public int rowThatHasBeenDestroyed = -1;
+    private List<GameObject> squareObjects = new List<GameObject>();
 
     private void Start()
     {
@@ -74,10 +76,18 @@ public class MapController : MonoBehaviour
             }
         }
 
-        matrix[y1, x1] = 1;
-        matrix[y2, x2] = 2;
-        matrix[y3, x3] = 3;
-        matrix[y4, x4] = 4;
+        if (x1 < 10 && y1 < 20)
+            matrix[y1, x1] = 1;
+
+        if (x2 < 10 && y2 < 20)
+            matrix[y2, x2] = 2;
+        
+        if (x3 < 10 && y3 < 20)
+            matrix[y3, x3] = 3;
+        
+        if (x4 < 10 && y4 < 20)
+            matrix[y4, x4] = 4;
+        
         if (y1 < 19 && y2 < 19 && y3 < 19 && y4 < 19)
         {
             if (matrix[y1 + 1, x1] < 0 || matrix[y2 + 1, x2] < 0 || matrix[y3 + 1, x3] < 0 || matrix[y4 + 1, x4] < 0)
@@ -152,15 +162,14 @@ public class MapController : MonoBehaviour
 
     public void markAsDestroyed(int row)
     {
+        rowThatHasBeenDestroyed = rowToDestroy;
         int elements=0;
         for (int i = 0; i < 10; i++)
         {
             if (matrix[row, i] == 0)
                 elements++;
         }
-
-        if (elements == 10) 
-            rowToDestroy = -1;
+        
     }
     
     public bool EmptyRowExist()
@@ -172,7 +181,7 @@ public class MapController : MonoBehaviour
             element = 0;
             for (int j = 0; j < 10; j++)
             {
-                if (matrix[i - 1, j] != 0)
+                if (matrix[i - 1, j] != 0 && matrix[i,j]==0)
                     isEmptyBetweenTheLines = true;
                 if (matrix[i, j] == 0)
                     element++;
@@ -183,6 +192,52 @@ public class MapController : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void Update()
+    {
+        if (EmptyRowExist() && rowToDestroy != -1)
+        {
+            Debug.Log("s-a incercat o manevra");
+            GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+            foreach (var obj in allObjects)
+            {
+                // Verificăm dacă numele obiectului conține "Square"
+                if (obj.name.Contains("Square"))
+                {
+                    // Verificăm dacă obiectul nu există deja în vector
+                    if (!squareObjects.Contains(obj))
+                    {
+                        squareObjects.Add(obj);
+                    }
+                }
+            }
+            Debug.Log(squareObjects.Count);
+
+            for (int i=0;i<squareObjects.Count;i++)
+            {
+                if (rowToDestroy > (int)(-squareObjects[i].transform.position.y))
+                {
+                    Debug.Log("s-a incercat ceva");
+                    GetBoxLowerOnMap _objScript = squareObjects[i].GetComponent<GetBoxLowerOnMap>();
+                    _objScript.getLower();
+                }
+            }
+            squareObjects.Clear();
+            UpdateMapAfterDestroy(rowToDestroy);
+            rowToDestroy = -1;
+        }
+    }
+
+    private void UpdateMapAfterDestroy(int row)
+    {
+        for (int i = row; i > 6; i--)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                matrix[i, j] = matrix[i-1, j];
+            }
+        }
     }
 
     public void changeValue(int row, int column)

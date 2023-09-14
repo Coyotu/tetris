@@ -36,6 +36,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/bd/a690c4af/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GetBoxLowerOnMap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MapController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -114,7 +115,8 @@
       <workItem from="1694591103825" duration="6862000" />
       <workItem from="1694604880509" duration="5278000" />
       <workItem from="1694610909255" duration="3410000" />
-      <workItem from="1694630100033" duration="1538000" />
+      <workItem from="1694630100033" duration="1733000" />
+      <workItem from="1694674346134" duration="7688000" />
     </task>
     <servers />
   </component>

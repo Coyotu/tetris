@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.VersionControl;
 using UnityEditorInternal;
 using UnityEngine;
+using Task = System.Threading.Tasks.Task;
 
 public class ShapeControl : MonoBehaviour
 {
@@ -18,7 +21,11 @@ public class ShapeControl : MonoBehaviour
     private float currentTime = 0.0f;
     private bool _canMove = true;
     private bool _speedMove = true;
-    float x1 = 0.5f, x2 = 0.5f, x3 = 0.5f, x4 = 0.5f, y1 = -0.5f, y2 = -0.5f, y3 = -0.5f, y4 = -0.5f;
+    float x1 = 0.5f, x2 = 0.5f, x3 = 0.5f, x4 = 0.5f;
+    public float y1 = -0.5f;
+    public float y2 = -0.5f;
+    public float y3 = -0.5f;
+    public float y4 = -0.5f;
     private bool _shouldGoLower;
 
 
@@ -87,18 +94,14 @@ public class ShapeControl : MonoBehaviour
 
     void Update()
     {
-        if ((_map.rowToDestroy < _box1.transform.position.y || _map.rowToDestroy < _box2.transform.position.y|| _map.rowToDestroy < _box3.transform.position.y || _map.rowToDestroy < _box1.transform.position.y ) && _map.EmptyRowExist())
-        {
-            _shouldGoLower = true;
-            Debug.Log("dadada");
-        }
         if (_shouldGoLower)
         {
-            y1--;
-            y2--;
-            y3--;
-            y4--;
+            //y1--;
+            //y2--;
+            //y3--;
+            //y4--;
             Debug.Log("nununu");
+
             _shouldGoLower = false;
         }
         if(_box1!=null)
@@ -116,6 +119,7 @@ public class ShapeControl : MonoBehaviour
             else if(x2>1 && x2<9)
                 RotateShape(shapeRotation);
         }
+        
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -183,12 +187,14 @@ public class ShapeControl : MonoBehaviour
 
     private void DestroyFullRow()
     {
+        
         if ((int)(-y1) == _map.rowToDestroy)
         {
+            
             _map.changeValue((int)(-y1),(int)x1);
             Destroy(_box1);
             x1 = 100;
-            y1 = 100;
+            y1 = -100;
         }
 
         if ((int)(-y2) == _map.rowToDestroy)
@@ -196,7 +202,7 @@ public class ShapeControl : MonoBehaviour
             _map.changeValue((int)(-y2),(int)x2);
             Destroy(_box2);
             x2 = 100;
-            y2 = 100;
+            y2 = -100;
         }
 
         if ((int)(-y3) == _map.rowToDestroy)
@@ -204,16 +210,20 @@ public class ShapeControl : MonoBehaviour
             _map.changeValue((int)(-y3),(int)x3);
             Destroy(_box3);
             x3 = 100;
-            y3 = 100;
+            y3 = -100;
         }
 
         if ((int)(-y4) == _map.rowToDestroy)
         {
             _map.changeValue((int)(-y4),(int)x4);
             Destroy(_box4);
-            x3 = 100;
-            y3 = 100;
+            x4 = 100;
+            y4 = -100;
         }
+    }
+
+    private  void ChangeMapVariable()
+    {
     }
     
 
