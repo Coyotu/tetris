@@ -6,6 +6,7 @@ public class GetBoxLowerOnMap : MonoBehaviour
     private ShapeControl _shape;
     private bool _shouldGoLower = false;
 
+    //Get references of controllers
     private void Start()
     {
         _map = FindObjectOfType<MapController>().GetComponent<MapController>();
@@ -13,6 +14,7 @@ public class GetBoxLowerOnMap : MonoBehaviour
     }
 
 
+    //This is used to get shape's boxes lower when a full row is destroyed
     public void getLower()
     {
         switch (gameObject.name)

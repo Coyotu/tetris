@@ -8,11 +8,17 @@ public class ShapeSpawner : MonoBehaviour
     [SerializeField] private GameObject _shape4;
     [SerializeField] private GameObject _shape5;
     public bool canSpawn = true;
+    
+    //Spawn object at start
     private void Start()
     {
         SpawnObject();
     }
+    
+    
 
+    
+    //Spawn new random shape
     public void SpawnObject()
     {
         System.Random random = new System.Random();

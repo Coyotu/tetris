@@ -22,6 +22,7 @@ public class ShapeControl : MonoBehaviour
     private bool _shouldGoLower;
 
 
+    //Building the shape at start
     void Start()
     {
         _map = FindObjectOfType<MapController>().GetComponent<MapController>();
@@ -95,6 +96,8 @@ public class ShapeControl : MonoBehaviour
         _box3.transform.position = new Vector3(x3, y3, 0);
         if(_box4!=null)
         _box4.transform.position = new Vector3(x4, y4, 0);
+        
+        //Rotating the shape
         if (Input.GetKeyDown(KeyCode.UpArrow) && _canMove)
         {
             if(shapeIndex == 0 && x2>2 && x2<8)
@@ -104,11 +107,13 @@ public class ShapeControl : MonoBehaviour
         }
         
 
+        //Move the shape down
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             _speedMove = true;
         }
 
+        //Move the shape left
         if (Input.GetKeyDown(KeyCode.LeftArrow) && _canMove)
         {
             if (x1 > 1 && x2 > 1 && x3 > 1 && x4 > 1)
@@ -124,6 +129,7 @@ public class ShapeControl : MonoBehaviour
             }
         }
 
+        //Move the shape right
         if (Input.GetKeyDown(KeyCode.RightArrow) && _canMove)
         {
             if (x1 < 9.5 && x2 < 9.5 && x3 < 9.5 && x4 < 9.5)
@@ -136,7 +142,8 @@ public class ShapeControl : MonoBehaviour
                     x4 += 1;
                 }
         }
-
+        
+        //Move the shape down at every 1 second
         if ((currentTime - startTime > delay)&& _canMove)
         {
             startTime += delay;
@@ -149,7 +156,12 @@ public class ShapeControl : MonoBehaviour
                 DestroyFullRow();
                 _canMove = false;
             }
+
+            //Increase dificulty
+            delay -= 0.0001f;
         }
+        
+        //Move the shape down then we press Down Arrow
         if (_speedMove && _canMove)
         {
             y1 -= 1;
@@ -164,10 +176,12 @@ public class ShapeControl : MonoBehaviour
 
             _speedMove = false;
         }
+        //Check if we have to destroy pieces of the shape
         DestroyFullRow();
         currentTime += Time.deltaTime;
     }
 
+    //Check if we have to destroy pieces of the shape
     private void DestroyFullRow()
     {
         
@@ -203,12 +217,9 @@ public class ShapeControl : MonoBehaviour
             y4 = -100;
         }
     }
-
-    private  void ChangeMapVariable()
-    {
-    }
     
-
+    
+    //Rotate the shape
     private void RotateShape(int localShapeRotation)
     {
         switch (shapeIndex)

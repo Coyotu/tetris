@@ -17,6 +17,7 @@ public class MapController : MonoBehaviour
     private float currentTime = 0.0f;
     public int rowToDestroy = -1;
 
+    //Set score position and mark matrix as empty
     private void Start()
     {
         _score.rectTransform.position = new Vector3(_score.rectTransform.position.x, Screen.height-5, _score.rectTransform.position.z);
@@ -33,6 +34,7 @@ public class MapController : MonoBehaviour
     }
 
 
+    //Set shape on map when we spawn it
     public void Instantiate(int shapeIndex)
     {
         switch (shapeIndex)
@@ -70,6 +72,7 @@ public class MapController : MonoBehaviour
         }
     }
 
+    //Update map
     public bool MapUpdate(int x1, int x2, int x3, int x4, int y1, int y2, int y3, int y4)
     {
         FindFullRow();
@@ -114,7 +117,9 @@ public class MapController : MonoBehaviour
             return false;
         }
     }
-
+    
+    
+    //Mark shapes as dead
     private void MakeMatrixElementsNegative()
     {
         for (int i = 0; i < 20; i++)
@@ -127,6 +132,7 @@ public class MapController : MonoBehaviour
         }
     }
 
+    //Check if you can move the shape left
     public bool isLeftAvailable(int x1, int x2, int x3, int x4, int y1, int y2, int y3, int y4)
     {
         if (matrix[y1, x1-1] < 0 || matrix[y2, x2-1] < 0 || matrix[y3, x3-1] < 0 || matrix[y4, x4-1] < 0)
@@ -137,6 +143,7 @@ public class MapController : MonoBehaviour
         return true;
     }
 
+    //Chef if you can move the shape right
     public bool isRightAvailable(int x1, int x2, int x3, int x4, int y1, int y2, int y3, int y4)
     {
         if (matrix[y1, x1+1] < 0 || matrix[y2, x2+1] < 0 || matrix[y3, x3+1] < 0 || matrix[y4, x4+1] < 0)
@@ -147,6 +154,7 @@ public class MapController : MonoBehaviour
         return true;
     }
 
+    //Find a full row to destroy it
     private void FindFullRow()
     {
         int element;
@@ -164,6 +172,7 @@ public class MapController : MonoBehaviour
         }
     }
 
+    //Mark row as destroyed
     public void markAsDestroyed(int row)
     {
         int elements=0;
@@ -176,6 +185,7 @@ public class MapController : MonoBehaviour
         _score.text = score.ToString();
     }
     
+    //Check if there is an empty row under shapes
     public bool EmptyRowExist()
     {
         bool isEmptyBetweenTheLines = false;
@@ -198,6 +208,7 @@ public class MapController : MonoBehaviour
         return false;
     }
 
+    //Move every shape down if there is an empty row
     private void Update()
     {
         if (EmptyRowExist() && rowToDestroy != -1)
@@ -229,6 +240,7 @@ public class MapController : MonoBehaviour
         FindReasonToEndGame();
     }
 
+    //Update map
     private void UpdateMapAfterDestroy(int row)
     {
         for (int i = row; i > 6; i--)
@@ -246,6 +258,8 @@ public class MapController : MonoBehaviour
         markAsDestroyed(row);
     }
 
+    
+    //Check if the game should end
     private void FindReasonToEndGame()
     {
         for (int i = 0; i < 6; i++)
@@ -258,6 +272,8 @@ public class MapController : MonoBehaviour
         }
     }
 
+    
+    //End game
     private void StopGame()
     {
         _gameObjectText.SetActive(true);

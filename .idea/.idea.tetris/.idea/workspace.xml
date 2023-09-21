@@ -5,36 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18889fb2-e6dd-4c3e-9a44-b7034f9d454f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tetris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tetris/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraResolution.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CameraResolution.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GetBoxLowerOnMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GetBoxLowerOnMap.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShapeControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShapeControl.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShapeSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShapeSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Bee/1900b0aE.dag" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/1900b0aE.dag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state.map" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.ref.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.ref.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Bee/backend_profiler0.traceevents" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/backend_profiler0.traceevents" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/backend_profiler0.traceevents" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/backend_profiler1.traceevents" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/backend_profiler1.traceevents" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/buildprogram0.traceevents" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/buildprogram0.traceevents" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/fullprofile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/fullprofile.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/tundra.digestcache" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/tundra.digestcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/tundra.log.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/tundra.log.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/BurstCache/JIT/Hashes/a110ffe6b760e4b56cb86ae44bc7857d.bhc" beforeDir="false" afterPath="$PROJECT_DIR$/Library/BurstCache/JIT/Hashes/a110ffe6b760e4b56cb86ae44bc7857d.bhc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/EditorUserBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorUserBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptMapper" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptMapper" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Search/transactions.db" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Search/transactions.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ShaderCache/EditorEncounteredVariants" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ShaderCache/EditorEncounteredVariants" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/4d/4d2a36d9faf65734f0bbefb3ee623532.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/4d/4d2a36d9faf65734f0bbefb3ee623532.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/com.unity.ide.rider/PersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/com.unity.ide.rider/PersistedState.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +120,7 @@
       <workItem from="1694604880509" duration="5278000" />
       <workItem from="1694610909255" duration="3410000" />
       <workItem from="1694630100033" duration="1733000" />
-      <workItem from="1694674346134" duration="9993000" />
+      <workItem from="1694674346134" duration="10455000" />
     </task>
     <servers />
   </component>
